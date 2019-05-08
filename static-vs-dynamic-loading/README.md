@@ -10,3 +10,5 @@ Dynamic Java Class loading is mainly using the reflection.
 It's sitaution when we want to get class which is not konow in compile time and we do that in runtime e.g
 Class.forName("com.githubproject.model.Student")
 
+Source:
+ - https://examples.javacodegeeks.com/core-java/dynamic-class-loading-example/
