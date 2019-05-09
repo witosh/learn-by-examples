@@ -1,13 +1,33 @@
 # Types of references in java
 
 ## Strong references
-When we create class Student and we want to create instance of this class by key word * *new* * e.g:
+Most ubiquitous form of references is strong reference. To create such reference we need to use keyword * *new* * e.g:
  - Student student = new Student()
 
-In this way we create **strong reference**. Any object with an active strong reference to it, will never be garbage collected except situation just when one object have references to themself (cyclical references). This object will be eligible for garbage collector if student reference will be pointed to null.
+In this way we create **strong reference**. A strong reference is very important in the theme of Java Garbage collector. Any object with an active such reference to it, will never be garbage collected except situation just when one object have references to themself (cyclical references). This object will be eligible for garbage collector if * *student* * reference will be pointed to null e.g:
+ - student = null
 
 ## Soft references
 
+To create soft reference to an object (Student) you need to first create strong reference to that object and then pass this  strong reference as a argument to the constructor of **SoftReference** object e.g:
+ - Student student = new Student()
+ - SoftReference softReference = new SoftReference(student);
+ 
+So as is shown below we create strong references **student** (Object is created and allocated on heap memory). Then we create strong references **softReference** (Object is created and allocated on heap memory) in both cases strong references exists on heap memory. **softReference** contains internally reference to object passed by a constructor.
+ 
+ In short soft references objects:
+ - are cleared by garbage collector in response to memory demand,
+ - are used to implement memory-sensitive caches,
+ - **are guaranteed to have been cleared before the virtual machine throws an OutOfMemoryError**. 
+ 
+ Usefully of soft reference:
+ Garbage collector runs at this point of time and in the same time strong reference **student** start point to null:
+ - student = null
+ The garbage collector will see that this current object **student** have only soft reference (no strong reference!!!). In this case GC could may demand the memory used by the **student** object but in any point of time if GC has not yet reclaimed the memory of this object we can get strong references this object (* *referent* *):
+ - Student resurrectedStudent = softReference.get();
+In this situation object **student** is not eligible for garbage collector anymore.
+ 
+ 
 ## Weak references
 
 ## Phantom references
