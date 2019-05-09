@@ -11,7 +11,7 @@ In this way we create **strong reference**. A strong reference is very important
 
 To create soft reference to an object (Student) you need to first create strong reference to that object and then pass this  strong reference as a argument to the constructor of **SoftReference** object e.g:
  - Student student = new Student()
- - SoftReference softReference = new SoftReference(student);
+ - SoftReference<Student> softReference = new SoftReference<Student>(student);
  
 So as is shown below we create strong references **student** (Object is created and allocated on heap memory). Then we create strong references **softReference** (Object is created and allocated on heap memory) in both cases strong references exists on heap memory. **softReference** contains internally reference to object passed by a constructor.
  
@@ -21,14 +21,19 @@ So as is shown below we create strong references **student** (Object is created 
  - **are guaranteed to have been cleared before the virtual machine throws an OutOfMemoryError**. 
  
  Usefully of soft reference:
- Garbage collector runs at this point of time and in the same time strong reference **student** start point to null:
+ The garbage collector runs at this point of time and in the same time strong reference **student** start point to null:
  - student = null
  The garbage collector will see that this current object **student** have only soft reference (no strong reference!!!). In this case GC could may demand the memory used by the **student** object but in any point of time if GC has not yet reclaimed the memory of this object we can get strong references this object (* *referent* *):
  - Student resurrectedStudent = softReference.get();
 In this situation object **student** is not eligible for garbage collector anymore.
  
- 
 ## Weak references
+The schema of crate weak reference is the same as below in soft references with one small exception that we use new class called **WeakReference**:
+- Student student = new Student()
+- WeakReference<Student> weakReference = new WeakReference<Student>(student);
+
+The garbage collector runs at some point of time and see that current object **student** have no such type of references as: strong or soft. In this case this object will be eligible for garbage collector becouse object have onyly onew references (* *weah* * ). The garbage collector marks this object for garbage collection. Finally remove it.
+
 
 ## Phantom references
 
