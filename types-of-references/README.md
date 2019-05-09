@@ -1,5 +1,7 @@
 # Types of references in java
 
+They are **strong** and **weak** references. For weak references we can distinguish **soft** and **phantom**.
+
 ## Strong references
 Most ubiquitous form of references is strong reference. To create such reference we need to use keyword * *new* * e.g:
  - Student student = new Student()
@@ -43,5 +45,12 @@ The schema of create phantom reference is the similar as above but in this case 
 
 ReferenceQueues are some sort of a queue where the JVM can store objects of type reference once it has decided to take some action on the objects to which they refer.
 
-A phantom reference is directly eligible for garbage collector.When it's garbage collection this type of reference is enqueued in the queue **referenceQueue** after finalize() method has been executed. The get() method of a phantom reference always returns null. 
+A phantom reference is directly eligible for garbage collector.When it's garbage collection this type of reference is enqueued in the queue **referenceQueue** after finalize() method has been executed. The get() method of a phantom reference always returns null. An object is phantomly referenced after it has been finalized, but before its allocated memory has been reclaimed.
 Used only to know when an object is removed from memory.
+
+Sources:
+ - https://dzone.com/articles/reference-types-java-part-1
+ - https://docs.oracle.com/javase/7/docs/api/java/lang/ref/PhantomReference.html
+ - https://docs.oracle.com/javase/7/docs/api/java/lang/ref/SoftReference.html
+ - https://docs.oracle.com/javase/7/docs/api/java/lang/ref/WeakReference.html
+ - https://stackoverflow.com/questions/9809074/java-difference-between-strong-soft-weak-phantom-reference
