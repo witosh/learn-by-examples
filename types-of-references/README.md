@@ -28,7 +28,7 @@ So as is shown below we create strong references **student** (Object is created 
 In this situation object **student** is not eligible for garbage collector anymore.
  
 ## Weak references
-The schema of crate weak reference is the same as below in soft references with one small exception that we use new class called **WeakReference**:
+The schema of craete weak reference is the same as above in soft references with one small exception that we use new class called **WeakReference**:
 - Student student = new Student()
 - WeakReference<Student> weakReference = new WeakReference<Student>(student);
 
@@ -36,4 +36,12 @@ The garbage collector runs at some point of time and see that current object **s
 
 
 ## Phantom references
+The schema of create phantom reference is the similar as above but in this case we need to create **ReferenceQueue** object:
+- Student student = new Student()
+- ReferenceQueue<Student> referenceQueue = new ReferenceQueue<Student>(); 
+- PhantomReference<Student> phantomRef = new PhantomReference<Student>(student,referenceQueue)
 
+ReferenceQueues are some sort of a queue where the JVM can store objects of type reference once it has decided to take some action on the objects to which they refer.
+
+A phantom reference is directly eligible for garbage collector.When it's garbage collection this type of reference is enqueued in the queue **referenceQueue** after finalize() method has been executed. The get() method of a phantom reference always returns null. 
+Used only to know when an object is removed from memory.
