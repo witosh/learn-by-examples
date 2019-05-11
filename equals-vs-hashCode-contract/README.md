@@ -25,5 +25,5 @@ Contract between this two methods it's very important when we want to use our ob
 There are many libraries to implements equals and hashCode or verifies class to check if contract is fullfiled.([2] 5, 6) 
 
  Sources: 
- - [1] https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#hashCode()
- - [2] https://www.baeldung.com/java-equals-hashcode-contracts
+ - [1] https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#hashCode() [EN]
+ - [2] https://www.baeldung.com/java-equals-hashcode-contracts [EN]

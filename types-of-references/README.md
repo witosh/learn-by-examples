@@ -49,8 +49,8 @@ A phantom reference is directly eligible for garbage collector.When it's garbage
 Used only to know when an object is removed from memory.
 
 Sources:
- - https://dzone.com/articles/reference-types-java-part-1
- - https://docs.oracle.com/javase/7/docs/api/java/lang/ref/PhantomReference.html
- - https://docs.oracle.com/javase/7/docs/api/java/lang/ref/SoftReference.html
- - https://docs.oracle.com/javase/7/docs/api/java/lang/ref/WeakReference.html
- - https://stackoverflow.com/questions/9809074/java-difference-between-strong-soft-weak-phantom-reference
+ - https://dzone.com/articles/reference-types-java-part-1 [EN]
+ - https://docs.oracle.com/javase/7/docs/api/java/lang/ref/PhantomReference.html [EN]
+ - https://docs.oracle.com/javase/7/docs/api/java/lang/ref/SoftReference.html [EN]
+ - https://docs.oracle.com/javase/7/docs/api/java/lang/ref/WeakReference.html [EN]
+ - https://stackoverflow.com/questions/9809074/java-difference-between-strong-soft-weak-phantom-reference [EN]

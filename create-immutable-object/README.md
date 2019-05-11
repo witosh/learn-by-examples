@@ -6,4 +6,4 @@ Here we have principles to create such object:
 - if instance contains * *mutable* * object provide mechanism to don't allow this object changed e.g. create copies of this mutable object. 
 
 Sources:
-- https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html
+- https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html [EN]

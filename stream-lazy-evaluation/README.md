@@ -20,5 +20,5 @@ Intermediate Operations:
 According to documentation java streams are lazy it means that computations are performed only if the source data are needed (computation on the source data is only performed when the terminal operation is initiated, and source elements are consumed only as needed).
 
 Source:
- - https://www.geeksforgeeks.org/stream-in-java/
- - https://www.geeksforgeeks.org/stream-in-java/
+ - https://www.geeksforgeeks.org/stream-in-java/ [EN]
+ - https://www.geeksforgeeks.org/stream-in-java/ [EN]
