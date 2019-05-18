@@ -2,23 +2,30 @@ package nodemodel;
 
 public class Node<T> {
 
-	T obj;
-	Node<T> node;
+	private T element;
+	private Node<T> nextNode;
 
-	public Node(T obj) {
-		this.obj = obj;
+	public Node() {
 	}
 
-	public Node<T> getNode() {
-		return node;
+	public T getElement() {
+		return element;
 	}
 
-	public void setNode(Node<T> node) {
-		this.node = node;
+	public void setElement(T element) {
+		this.element = element;
+	}
+
+	public Node<T> getNextNode() {
+		return nextNode;
+	}
+
+	public void setNextNode(Node<T> nextNode) {
+		this.nextNode = nextNode;
 	}
 
 	@Override
 	public String toString() {
-		return "Node [obj=" + obj + ", node=" + node + "]";
+		return "Node [obj=" + element + ", nextNode=" + nextNode + "]";
 	}
 }
