@@ -19,7 +19,7 @@ public class LinkedList<T> {
 		this.head = node;
 	}
 
-	public void addElemeent(T element) {
+	public void addElement(T element) {
 		Node<T> currentNode;
 		Node<T> newNode = new Node<T>();
 
@@ -37,6 +37,19 @@ public class LinkedList<T> {
 			currentNode.setNextNode(newNode);
 			newNode.setNextNode(null);
 		}
+	}
+	
+	public void addFirst(T element) {
+		Node<T> newNode = new Node<T>();
+		
+		newNode.setElement(element);
+		newNode.setNextNode(this.head);
+		this.head = newNode;
+	}
+	
+	public void deleteElement() {
+		Node currentNode = this.head;
+		
 	}
 	
 	public boolean hasNextNode(Node<T> node) {

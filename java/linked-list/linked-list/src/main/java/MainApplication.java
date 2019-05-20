@@ -8,13 +8,16 @@ public class MainApplication {
 	public static void main(String[] args) {
 		LinkedList linkedList = new LinkedList();
 
-		linkedList.addElemeent(new String("head"));
-//		linkedList.addElemeent(new String("nodeOne"));
-//		linkedList.addElemeent(new String("nodeTwo"));
+//		linkedList.addElement(new String("head"));
+//		linkedList.addElement(new String("nodeOne"));
+//		linkedList.addElement(new String("nodeTwo"));
+		linkedList.addFirst(new String("newHead"));
+		linkedList.addFirst(new String("newestHeeead"));
 //		linkedList.addElemeent(new String("nodTree"));
 
 		printLinkedList(linkedList);
-
+//		System.out.println("Size: " + linkedList.getSize());
+//		System.out.print("Hello");
 	}
 
 	public static void printLinkedList(LinkedList linkedList) {
@@ -26,7 +29,6 @@ public class MainApplication {
 		while (linkedList.hasNextNode(current)) {
 			current = current.getNextNode();
 			System.out.println("node: " + current.getElement());
-
 		}
 
 	}
