@@ -32,26 +32,8 @@ ArrayList maintanins only element data when LinkedList maintain element data and
 - Both maintain element insertion order (display the same order in which got inserted)
 - Both are non-synchronized (can be synchronized by Collection.synchronizedList)
 - Iterators for both are fail-fast. Throw  ConcurrentModificationException.
-*********************************************************
 
-ArrayList:
- - provide constant-time positional access to the element **O(1)** in contrast to linear time in LinkedList O(n),
- - not need to allocate node object for each element of `List`.
-
-LinkedList
- - provide constatnt-time for add or delete elements from list **O(1)** in contrast to linear time in ArrayList O(n),
- - extra memory is need allocate previous and next reference,
-
-So ArrayList it's better choose for situation when we frequently access elements. For operation sucha as add or remove elements from list better choose is **LinekedList**.
-
-LinkedList implements:
-- List,
-- Deque,
-interfaces
-
-ArrayList implements:
- - List,
-interface.
+(Informatio based on)[https://beginnersbook.com/2013/12/difference-between-arraylist-and-linkedlist-in-java]
 
 Source: 
  - https://books.google.pl/books?id=nS2tBQAAQBAJ&pg=PT494&lpg=PT494&dq=LinkedList+docs&source=bl&ots=3o-Sz8UXVZ&sig=ACfU3U2Mjch8UVkMduDj6UdH5yACYBL80A&hl=pl&sa=X&ved=2ahUKEwiU2ZTR_pPiAhUvxIsKHc4XDfEQ6AEwCHoECAkQAQ#v=onepage&q=LinkedList%20docs&f=false [EN]
