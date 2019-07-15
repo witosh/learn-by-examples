@@ -1,39 +1,39 @@
 # LinkedList vs ArrayList
 
 
-##ArrayList
+## ArrayList
 - based on an Array data structure
 - a resizable-array implementation of the List interface
 - permits all elements, including **null**, 
 
-##LinkedList
+## LinkedList
 -  represent a singly linked list,
 -  each element of the LinkedList has the reference to the next element of the LinkedList,
 
 
-###Search
+### Search
 ArrayList search operation is faster compared to LinkedList. 
  
 ArrayList maintains index based system for its element. On the other side LinkedList implements doubly linked list which requires the traversal through all the elements for searching an element
 
 
-###Deletion and Insertion
+### Deletion and Insertion
 LinkedList remove and insertion operation has better performance (faster compared to ArrayList) while ArrayList is worst in this case.
 
 LinkedList’s each element maintains two pointers (addresses) which points to the both neighbor elements in the list. Removal only requires change in the pointer location in the two neighbor nodes (elements) of the node which is going to be removed. While In ArrayList all the elements need to be shifted to fill out the space created by removed element. The same reson for insertion Linked list only plug in new elemnt to list by change pointers and ArrayList in case when we add element in specific index need to shifft all eleemnt and the insert eleement in this index.
 
-###Memory
+### Memory
 ArrayList has less consumption compared to LinkedList.
 
 ArrayList maintanins only element data when LinkedList maintain element data and two pointers.
 
-###Similarities
+### Similarities
 - Both implements *List* interface,
 - Both maintain element insertion order (display the same order in which got inserted)
 - Both are non-synchronized (can be synchronized by Collection.synchronizedList)
 - Iterators for both are fail-fast. Throw  ConcurrentModificationException.
 
-(Informatio based on)[https://beginnersbook.com/2013/12/difference-between-arraylist-and-linkedlist-in-java]
+[Informatio based on](https://beginnersbook.com/2013/12/difference-between-arraylist-and-linkedlist-in-java)
 
 Source: 
  - https://books.google.pl/books?id=nS2tBQAAQBAJ&pg=PT494&lpg=PT494&dq=LinkedList+docs&source=bl&ots=3o-Sz8UXVZ&sig=ACfU3U2Mjch8UVkMduDj6UdH5yACYBL80A&hl=pl&sa=X&ved=2ahUKEwiU2ZTR_pPiAhUvxIsKHc4XDfEQ6AEwCHoECAkQAQ#v=onepage&q=LinkedList%20docs&f=false [EN]
