@@ -9,7 +9,7 @@ Possible anomalies may occures:
  - phantom reads.
 
 ### READ COMMITED
-**Minimum isolation.** The transaction holds a read lock (if it only reads the row) or write lock (if it updates or deletes the row) on the current row to prevent other transactions from updating or deleting it.
+**Minimum isolation.** The transaction holds a read lock (if it only reads the row) or write lock (if it updates or deletes the row) on the current row to prevent other transactions from updating or deleting it (read dirty data).
 
 **read lock** releases when moves off the current row.
 **write locks** releases when it's commited or rolled back
