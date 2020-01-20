@@ -45,6 +45,10 @@ The schema of create phantom reference is the similar as above but in this case 
 - ReferenceQueue<Student> referenceQueue = new ReferenceQueue<Student>(); 
 - PhantomReference<Student> phantomRef = new PhantomReference<Student>(student,referenceQueue)
 
+We can't get a referent of a phantom reference. The referent is never accessible directly through the API and this is why we need a reference queue to work with this type of references.
+
+The Garbage Collector adds a phantom reference to a reference queue after the finalize method of its referent is executed. It implies that the instance is still in the memory.
+
 ReferenceQueues are some sort of a queue where the JVM can store objects of type reference once it has decided to take some action on the objects to which they refer.
 
 A phantom reference is directly eligible for garbage collector.When it's garbage collection this type of reference is enqueued in the queue **referenceQueue** after finalize() method has been executed. The get() method of a phantom reference always returns null. An object is phantomly referenced after it has been finalized, but before its allocated memory has been reclaimed.
