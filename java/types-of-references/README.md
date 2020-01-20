@@ -34,7 +34,9 @@ The schema of craete weak reference is the same as above in soft references with
 - Student student = new Student()
 - WeakReference<Student> weakReference = new WeakReference<Student>(student);
 
-The garbage collector runs at some point of time and see that current object **student** have no such type of references as: strong or soft. In this case this object will be eligible for garbage collector becouse object have onyly onew references (* *weah* * ). The garbage collector marks this object for garbage collection. Finally remove it.
+Weak reachability means that an object has neither strong nor soft references pointing to it. The object can be reached only by traversing a weak reference.
+First off, the Garbage Collector clears a weak reference, so the referent is no longer accessible. Then the reference is placed in a reference queue (if any associated exists) where we can obtain it from.
+At the same time, formerly weakly-reachable objects are going to be finalized.
 
 
 ## Phantom references
@@ -47,6 +49,13 @@ ReferenceQueues are some sort of a queue where the JVM can store objects of type
 
 A phantom reference is directly eligible for garbage collector.When it's garbage collection this type of reference is enqueued in the queue **referenceQueue** after finalize() method has been executed. The get() method of a phantom reference always returns null. An object is phantomly referenced after it has been finalized, but before its allocated memory has been reclaimed.
 Used only to know when an object is removed from memory.
+
+They are operationally defined as follows:
+- An object is **strongly reachable** if it can be reached by some thread without traversing any reference objects. A newly-created object is strongly reachable by the thread that created it.
+- An object is **softly reachable** if it is not strongly reachable but can be reached by traversing a soft reference.
+- An object is **weakly reachable** if it is neither strongly nor softly reachable but can be reached by traversing a weak reference. When the weak references to a weakly-reachable object are cleared, the object becomes eligible for finalization.
+- An object is **phantom reachable** if it is neither strongly, softly, nor weakly reachable, it has been finalized, and some phantom reference refers to it.
+- Finally, an object is unreachable, and therefore eligible for reclamation, when it is not reachable in any of the above ways.
 
 Sources:
  - https://dzone.com/articles/reference-types-java-part-1 [EN]
