@@ -24,6 +24,13 @@ Contract between this two methods it's very important when we want to use our ob
 
 There are many libraries to implements equals and hashCode or verifies class to check if contract is fullfiled.([2] 5, 6) 
 
+equals() method relation:
+- It is reflexive: for any non-null reference value x, x.equals(x) should return true.
+- It is symmetric: for any non-null reference values x and y, x.equals(y) should return true if and only if y.equals(x) returns true.
+- It is transitive: for any non-null reference values x, y, and z, if x.equals(y) returns true and y.equals(z) returns true, then x.equals(z) should return true.
+- It is consistent: for any non-null reference values x and y, multiple invocations of x.equals(y) consistently return true or consistently return false, provided no information used in equals comparisons on the objects is modified.
+- For any non-null reference value x, x.equals(null) should return false.
+
  Sources: 
  - [1] https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#hashCode() [EN]
  - [2] https://www.baeldung.com/java-equals-hashcode-contracts [EN]
