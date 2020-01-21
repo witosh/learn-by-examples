@@ -45,3 +45,5 @@ Source:
 
  ArrayList:
  - https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html [EN]
+ - https://www.java67.com/2012/09/arraylist-vs-vector-in-java-interview.html
+ - https://beginnersbook.com/2013/12/difference-between-arraylist-and-vector-in-java/
