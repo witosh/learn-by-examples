@@ -1,0 +1,13 @@
+# Angular topics
+
+[Angular Q&A - interview](https://github.com/sudheerj/angular-interview-questions/blob/master/README.md?fbclid=IwAR2dDlNyYtdbvcl4_k-rQOX_xgjiKk0ehxr_0F7xGriCveEw8mBLejWCpNI#what-is-the-difference-between-constructor-and-ngoninit)
+
+###Difference between Constructor Vs ngOnInit in Angular
+
+Shortly speaking - use:
+- constructor() for Dependency Injection/initializing fields,
+- use ngOnInit() for angular component binding.
+
+Sources:
+[Quick article with good explanation](https://medium.com/@coderonfleek/constructor-vs-ngoninit-angular-2-components-b1a33db0be65)
+[Of course stackoverflow with lots of thought](https://stackoverflow.com/questions/35763730/difference-between-constructor-and-ngoninit/35763811?fbclid=IwAR3xA4kvlmNDoFhyWINujl5qMsrAVn3yas0fFhQgXWrYE1RHP1jhXSo2bv4#35763811)
