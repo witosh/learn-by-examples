@@ -1,4 +1,4 @@
-Java questions & answers 
+# Java questions & answers 
 
 ## Table of Contents
 
@@ -6,9 +6,9 @@ Java questions & answers
 | ------------- |:-------------:|
 | 1. | [*Interfaces in Java 8*](#interfaces-in-java-8) |
 | 2. | [*Dimond problem*](#diamond-problem)    |
-| 3. | [*Why String is immutable in Java ?*](#why-string-is-immutable-in-java-?)   |
+| 3. | [*Why String is immutable in Java ?*](#why-string-is-immutable-in-java)   |
 | 4. | [*String Pool in Java*](#string-pool-in-java)   |
-| 5. | [*How many Strings are getting created?*](#How-many-strings-are-getting-created?)   |
+| 5. | [*How many Strings are getting created?*](#How-many-strings-are-getting-created)   |
 
 
 ### Interfaces in Java 8
