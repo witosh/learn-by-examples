@@ -6,7 +6,7 @@
 | ------------- |:-------------:|
 | 1. | [*Interfaces in Java 8*](#interfaces-in-java-8) |
 | 2. | [*Dimond problem*](#diamond-problem)    |
-| 3. | [*Why String is immutable in Java ?*](#why-string-is-immutable-in-java)   |
+| 3. | [*Why String is immutable in Java?*](#why-string-is-immutable-in-java)   |
 | 4. | [*String Pool in Java*](#string-pool-in-java)   |
 | 5. | [*How many Strings are getting created?*](#How-many-strings-are-getting-created)   |
 
@@ -127,7 +127,7 @@ B   C
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### Why String is immutable in Java ?
+### Why String is immutable in Java?
 
 - String pool is possible only because String is immutable in Java,
 - Since String is immutable, it is safe for multithreading,
