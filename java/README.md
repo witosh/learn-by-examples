@@ -8,9 +8,9 @@
 | 2. | [*Dimond problem*](#diamond-problem)    |
 | 3. | [*Why String is immutable in Java?*](#why-string-is-immutable-in-java)   |
 | 4. | [*String Pool in Java*](#string-pool-in-java)   |
-| 5. | [*How many Strings are getting created?*](#How-many-strings-are-getting-created?)   |
+| 5. | [*How many Strings are getting created?*](#How-many-strings-are-getting-created)   |
 | 6. | [*Difference between Abstract Class and Interface in Java*](#difference-between-abstract-class-and-interface-in-java)   |
-| 7. | [*How to create immutable object?*](#how-to-create-immutable-object?) |
+| 7. | [*How to create immutable object?*](#how-to-create-immutable-object) |
 
 
 ### Interfaces in Java 8
