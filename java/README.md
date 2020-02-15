@@ -9,7 +9,8 @@ Java questions & answers
 | 3. | [*Why String is immutable in Java?*](#why-string-is-immutable-in-java?)   |
 | 4. | [*String Pool in Java*](#string-pool-in-java)   |
 | 5. | [*How many Strings are getting created?*](#How-many-strings-are-getting-created?)   |
-
+| 6. | [*Difference between Abstract Class and Interface in Java*](#difference-between-abstract-class-and-interface-in-java)   |
+| 7. | [*How to create immutable object?*](#how-to-create-immutable-object?) |
 
 ### Interfaces in Java 8e
 
@@ -179,3 +180,26 @@ In the above statement, either 1 or 2 string will be created. If there is alread
 
 **[⬆ Back to Top](#table-of-contents)**
 
+### Difference between Abstract Class and Interface in Java
+
+| **Interface** | **Absract classe** |
+| _interface_ keyword	| _abstract_ keyword|
+| subclass _implements_ interface| subclass _extends_ abstract class|
+| can have abstract, default, static methods | can have abstract methods or impllemented methods |
+| subclass can implements one or more interfaces| subclass can extends only one abstract class|
+
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### How to create immutable object?
+
+Here we have principles to create such object:
+- declare class as a final to prevent override methods by subclasses,(another approach constructor private and construct instances in factory methods)
+- make * *private* * and * *final* * fields of class,
+- don't provide any methods that modify fields of class like **setters**,
+- if instance contains * *mutable* * object provide mechanism to don't allow this object changed e.g. create copies of this mutable object. 
+
+Sources:
+- https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html [EN]
+
+**[⬆ Back to Top](#table-of-contents)**
