@@ -11,7 +11,9 @@
 | 5. | [*How many Strings are getting created?*](#How-many-strings-are-getting-created)   |
 | 6. | [*Difference between Abstract Class and Interface in Java*](#difference-between-abstract-class-and-interface-in-java)   |
 | 7. | [*How to create immutable object?*](#how-to-create-immutable-object) |
-
+| 8. | [*What is difference between static and dynamic class loading?*](#what-is-difference-between-static-and-dynamic-class-loading) |
+| 9. | [*hashCode vs equals contarct*](#hashCode-vs-equals-contarct) |
+| 10. | [*Types of references in java*](#types-of-references-in-java) |
 
 ### Interfaces in Java 8
 
@@ -203,5 +205,135 @@ Here we have principles to create such object:
 
 Sources:
 - https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html [EN]
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What's difference between static and dynamic class loading
+
+#### Static loading
+We can say that class is static loading when we use * *new* * operator just like in exmaple below:
+- Car car = new Car();
+Class is avaliable at compile time.
+
+#### Dynami loading
+Dynamic Java Class loading is mainly using the reflection.
+It's sitaution when we want to get class which is not konow in compile time and we do that in runtime e.g
+Class.forName("com.githubproject.model.Student")
+
+Source:
+ - https://examples.javacodegeeks.com/core-java/dynamic-class-loading-example/ [EN]
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### hashCode vs equals contarct
+
+Firstly we should say that there is relationship between this two base methods in Java language this relationship is called **contract**. According to documentation both methods have definitions:
+ - **hashCode** - return hash code value for object [1],
+ - **equals** - indicates if some object A is 'equal' to object B e.g. A.equals(B) [1].
+ 
+###### hashCode vs equals 
+  
+If **two objects are equal** then **they should have the same hashcode** and if **two objects are not equal** then **they may or may not have same hash code**.
+
+###### If we don't override methods
+
+In case we don't override equals() e.g
+ - call equals on objects A and B it will return * *false* * and hashCode will be different. The answer is in this part of docs (* *The equals method for class Object implements the most discriminating possible equivalence relation on objects; that is, for any non-null reference values x and y, this method returns true if and only if x and y refer to the same object (x == y has the value true).* * [1])
+ , so in our case it's two different instances thats why we get false. 
+
+###### Override equals method
+
+**If we override equals() method, we must also override hashCode()** method becouse of 2nd criteria of hashCode() method contract (* *If two objects are equal according to the equals(Object) method, then calling the hashCode method on each of the two objects must produce the same integer result.* * [1]).
+In case when we override only equals() method, hasCode() use default **Object** class method implementation, so in this case when we don't override hashCode() we break 2nd criteria e.g. 
+ - object A and B wil be equal but the hashCode() of this objects will be different!!!
+
+Contract between this two methods it's very important when we want to use our objects as a **key** in hash-based collection e.g. **HashMap** [[2] 3.3].
+
+There are many libraries to implements equals and hashCode or verifies class to check if contract is fullfiled.([2] 5, 6) 
+
+equals() method relation:
+- It is reflexive: for any non-null reference value x, x.equals(x) should return true.
+- It is symmetric: for any non-null reference values x and y, x.equals(y) should return true if and only if y.equals(x) returns true.
+- It is transitive: for any non-null reference values x, y, and z, if x.equals(y) returns true and y.equals(z) returns true, then x.equals(z) should return true.
+- It is consistent: for any non-null reference values x and y, multiple invocations of x.equals(y) consistently return true or consistently return false, provided no information used in equals comparisons on the objects is modified.
+- For any non-null reference value x, x.equals(null) should return false.
+
+[Let's check code](https://github.com/witosh/learn-by-examples/tree/master/java/equals-vs-hashCode-contract)
+
+ Sources: 
+ - [1] https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#hashCode() [EN]
+ - [2] https://www.baeldung.com/java-equals-hashcode-contracts [EN]
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Types of references in java
+
+They are **strong** and **weak** references. For weak references we can distinguish **soft** and **phantom**.
+
+## Strong references
+Most ubiquitous form of references is strong reference. To create such reference we need to use keyword * *new* * e.g:
+ - Student student = new Student()
+
+In this way we create **strong reference**. A strong reference is very important in the theme of Java Garbage collector. Any object with an active such reference to it, will never be garbage collected except situation just when one object have references to themself (cyclical references). This object will be eligible for garbage collector if * *student* * reference will be pointed to null e.g:
+ - student = null
+
+## Soft references
+
+To create soft reference to an object (Student) you need to first create strong reference to that object and then pass this  strong reference as a argument to the constructor of **SoftReference** object e.g:
+ - Student student = new Student()
+ - SoftReference<Student> softReference = new SoftReference<Student>(student);
+ 
+So as is shown below we create strong references **student** (Object is created and allocated on heap memory). Then we create strong references **softReference** (Object is created and allocated on heap memory) in both cases strong references exists on heap memory. **softReference** contains internally reference to object passed by a constructor.
+ 
+ In short soft references objects:
+ - are cleared by garbage collector in response to memory demand,
+ - are used to implement memory-sensitive caches,
+ - **are guaranteed to have been cleared before the virtual machine throws an OutOfMemoryError**. 
+ 
+ Usefully of soft reference:
+ The garbage collector runs at this point of time and in the same time strong reference **student** start point to null:
+ - student = null
+ The garbage collector will see that this current object **student** have only soft reference (no strong reference!!!). In this case GC could may demand the memory used by the **student** object but in any point of time if GC has not yet reclaimed the memory of this object we can get strong references this object (* *referent* *):
+ - Student resurrectedStudent = softReference.get();
+In this situation object **student** is not eligible for garbage collector anymore.
+ 
+## Weak references
+The schema of craete weak reference is the same as above in soft references with one small exception that we use new class called **WeakReference**:
+- Student student = new Student()
+- WeakReference<Student> weakReference = new WeakReference<Student>(student);
+
+Weak reachability means that an object has neither strong nor soft references pointing to it. The object can be reached only by traversing a weak reference.
+First off, the Garbage Collector clears a weak reference, so the referent is no longer accessible. Then the reference is placed in a reference queue (if any associated exists) where we can obtain it from.
+At the same time, formerly weakly-reachable objects are going to be finalized.
+
+
+## Phantom references
+The schema of create phantom reference is the similar as above but in this case we need to create **ReferenceQueue** object:
+- Student student = new Student()
+- ReferenceQueue<Student> referenceQueue = new ReferenceQueue<Student>(); 
+- PhantomReference<Student> phantomRef = new PhantomReference<Student>(student,referenceQueue)
+
+We can't get a referent of a phantom reference. The referent is never accessible directly through the API and this is why we need a reference queue to work with this type of references.
+
+The Garbage Collector adds a phantom reference to a reference queue after the finalize method of its referent is executed. It implies that the instance is still in the memory.
+
+ReferenceQueues are some sort of a queue where the JVM can store objects of type reference once it has decided to take some action on the objects to which they refer.
+
+A phantom reference is directly eligible for garbage collector.When it's garbage collection this type of reference is enqueued in the queue **referenceQueue** after finalize() method has been executed. The get() method of a phantom reference always returns null. An object is phantomly referenced after it has been finalized, but before its allocated memory has been reclaimed.
+Used only to know when an object is removed from memory.
+
+They are operationally defined as follows:
+- An object is **strongly reachable** if it can be reached by some thread without traversing any reference objects. A newly-created object is strongly reachable by the thread that created it.
+- An object is **softly reachable** if it is not strongly reachable but can be reached by traversing a soft reference.
+- An object is **weakly reachable** if it is neither strongly nor softly reachable but can be reached by traversing a weak reference. When the weak references to a weakly-reachable object are cleared, the object becomes eligible for finalization.
+- An object is **phantom reachable** if it is neither strongly, softly, nor weakly reachable, it has been finalized, and some phantom reference refers to it.
+- Finally, an object is unreachable, and therefore eligible for reclamation, when it is not reachable in any of the above ways.
+
+Sources:
+ - https://dzone.com/articles/reference-types-java-part-1 [EN]
+ - https://docs.oracle.com/javase/7/docs/api/java/lang/ref/PhantomReference.html [EN]
+ - https://docs.oracle.com/javase/7/docs/api/java/lang/ref/SoftReference.html [EN]
+ - https://docs.oracle.com/javase/7/docs/api/java/lang/ref/WeakReference.html [EN]
+ - https://stackoverflow.com/questions/9809074/java-difference-between-strong-soft-weak-phantom-reference [EN]
 
 **[⬆ Back to Top](#table-of-contents)**
