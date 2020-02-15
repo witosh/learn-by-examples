@@ -4,16 +4,19 @@
 
 | No.        | Topics           | 
 | ------------- |:-------------:|
-| 1. | [*Interfaces in Java 8*](#interfaces-in-java-8) |
-| 2. | [*Dimond problem*](#diamond-problem)    |
-| 3. | [*Why String is immutable in Java?*](#why-string-is-immutable-in-java)   |
-| 4. | [*String Pool in Java*](#string-pool-in-java)   |
-| 5. | [*How many Strings are getting created?*](#How-many-strings-are-getting-created)   |
-| 6. | [*Difference between Abstract Class and Interface in Java*](#difference-between-abstract-class-and-interface-in-java)   |
-| 7. | [*How to create immutable object?*](#how-to-create-immutable-object) |
-| 8. | [*What is difference between static and dynamic class loading?*](#what-is-difference-between-static-and-dynamic-class-loading) |
-| 9. | [*hashCode vs equals contarct*](#hashCode-vs-equals-contarct) |
-| 10. | [*Types of references in java*](#types-of-references-in-java) |
+| 1. |[*Interfaces in Java 8*](#interfaces-in-java-8) |
+| 2. |[*Dimond problem*](#diamond-problem)    |
+| 3. |[*Why String is immutable in Java?*](#why-string-is-immutable-in-java)   |
+| 4. |[*String Pool in Java*](#string-pool-in-java)   |
+| 5. |[*How many Strings are getting created?*](#How-many-strings-are-getting-created)   |
+| 6. |[*Difference between Abstract Class and Interface in Java*](#difference-between-abstract-class-and-interface-in-java)   |
+| 7. |[*How to create immutable object?*](#how-to-create-immutable-object) |
+| 8. |[*What is difference between static and dynamic class loading?*](#what-is-difference-between-static-and-dynamic-class-loading) |
+| 9. |[*hashCode vs equals contarct*](#hashCode-vs-equals-contarct) |
+| 10. |[*Types of references in java*](#types-of-references-in-java) |
+| 11. |[*Overriding in Java*](#overriding-in-java) |
+| 12. |[*Internal vs External Iteration*](#internal-vs-external-iteration) |
+| 13. |[*What means that java streams are lazy evaluation?*](#what-means-that-java-streams-are-lazy-evaluation) |
 
 ### Interfaces in Java 8
 
@@ -78,6 +81,8 @@ public class MyClass implements Interface1, Interface2 {
  An interface with exactly one abstract method is known as Functional Interface. @FunctionalInterface annotation marks an interface as Functional Interface. Annotation vvoid accidental addition of abstract methods in the functional interfaces (throw compilation error). It enables us to use lambda expressions to instantiate them.
 
 [Source EN ](https://www.journaldev.com/2752/java-8-interface-changes-static-method-default-method)
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Diamond problem
 
@@ -335,5 +340,113 @@ Sources:
  - https://docs.oracle.com/javase/7/docs/api/java/lang/ref/SoftReference.html [EN]
  - https://docs.oracle.com/javase/7/docs/api/java/lang/ref/WeakReference.html [EN]
  - https://stackoverflow.com/questions/9809074/java-difference-between-strong-soft-weak-phantom-reference [EN]
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Overriding in Java
+
+#### How Java Overriding Works?
+- The method signature must be exactly the same in the superclass and the subclass.
+- When the instance is created, subclass constructor must be used.
+- At the compile time, the variable refers to the superclass. However, in runtime, it refers to the subclass object.
+- When the method is called on the variable, it looks like the superclass method will be called. But the method is present in the subclass object, hence it’s called.
+
+#### Java @Override Annotation
+
+When we want to override a method of Superclass, we should use this annotation to inform compiler that we are overriding a method. So when superclass method is removed or changed, compiler will show error message.
+
+If you uncomment the @Override annotation in subclass, you will get following compile-time error message:
+```
+The method doSomething(String) of type ChildClass must override or implement a supertype method
+```
+Java @Override annotation will make sure any superclass changes in method signature will result in a compile-time error and you will have to do necessary changes to make sure the classes work as expected.
+
+It’s better to resolve potential issues at compile time than runtime. There coulde be situation happened when you try to override method on subclass but then for a couple days you change a signature of this method, so it could change behaviour of your subclass.
+
+[Java @Override Annotation](https://www.journaldev.com/817/java-override-method-overriding)
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Internal vs External Iteration
+
+#### External iteration
+
+The collections framework relied on the concept of external iteration, where a Collection provides, by implementing Iterable, a means to enumerate its elements i.e. Iterator, and clients use this to step sequentially through the elements of a collection. 
+
+```java
+public class IterationExamples {
+    public static void main(String[] args){
+        List<String> alphabets = Arrays.asList(new String[]{"a","b","b","d"});
+         
+        for(String letter: alphabets){
+            System.out.println(letter.toUpperCase());
+        }
+    }
+}
+```
+or
+
+```java
+public class IterationExamples {
+    public static void main(String[] args){
+        List<String> alphabets = Arrays.asList(new String[]{"a","b","b","d"});
+         
+        Iterator<String> iterator = alphabets.listIterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next().toUpperCase());
+        }
+    }
+}
+```
+
+External iteration is straightforward enough, but it has several problems:
+
+1) Java’s for-each loop/iterator is inherently sequential, and must process the elements in the order specified by the collection.
+2) It limits the opportunity to manage the control flow, which might be able to provide better performance by exploiting reordering of the data, parallelism, short-circuiting, or laziness.
+
+The alternative to external iteration is internal iteration, where instead of controlling the iteration, client let it handle by library and only provide the code which must be executed for all/some of data elements.
+
+```java
+public class IterationExamples {
+    public static void main(String[] args){
+        List<String> alphabets = Arrays.asList(new String[]{"a","b","b","d"});
+         
+        alphabets.forEach(l -> l.toUpperCase());
+    }
+}
+```
+
+Summary:
+- external iteration mixes the “what” (uppercase) and the “how” (for loop/iterator),
+- internal iteration lets the client to provide only the “what” but lets the library control the “how”
+
+[Internal vs External Iteration](https://howtodoinjava.com/java8/java-8-tutorial-internal-vs-external-iteration/)
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What means that java streams are lazy evaluation?
+
+Lazy evaluation is an evaluation strategy which delays the evaluation of an expression until its value is needed.
+
+ To  perform computation, stream operations are composed into a stream pipeline. A stream pipeline consists of:
+  - a source e.g. some kind of collection (**ArrayList**),
+  - intermediate operations (transform a stream into another stream, such as filter(Predicate)),
+  - terminal operation (produces a result or side-effect, such as forEach(Consumer)).
+
+Intermediate Operations:
+ - map,
+ - filter,
+ - sorted.
+ 
+ Terminal Operations:
+ - collect,
+ - forEach,
+ - reduce.
+  
+According to documentation java streams are lazy it means that computations are performed only if the source data are needed (computation on the source data is only performed when the terminal operation is initiated, and source elements are consumed only as needed).
+
+Source:
+ - https://www.geeksforgeeks.org/stream-in-java/ [EN]
+ - https://www.geeksforgeeks.org/stream-in-java/ [EN]
 
 **[⬆ Back to Top](#table-of-contents)**
