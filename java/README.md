@@ -4,7 +4,7 @@
 
 | No.        | Topics           | 
 | ------------- |:-------------:|
-| 1. |[*Interfaces in Java 8*](#interfaces-in-java-8)|
+| 1. | [*Interfaces in Java 8*](#interfaces-in-java-8)|
 | 2. |[*Dimond problem*](#diamond-problem)|
 | 3. |[*Why String is immutable in Java?*](#why-string-is-immutable-in-java)|
 | 4. |[*String Pool in Java*](#string-pool-in-java)|
