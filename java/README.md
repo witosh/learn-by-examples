@@ -4,19 +4,19 @@
 
 | No.        | Topics           | 
 | ------------- |:-------------:|
-| 1. |[*Interfaces in Java 8*](#interfaces-in-java-8) |
-| 2. |[*Dimond problem*](#diamond-problem)    |
-| 3. |[*Why String is immutable in Java?*](#why-string-is-immutable-in-java)   |
-| 4. |[*String Pool in Java*](#string-pool-in-java)   |
-| 5. |[*How many Strings are getting created?*](#How-many-strings-are-getting-created)   |
+| 1. |[*Interfaces in Java 8*](#interfaces-in-java-8)|
+| 2. |[*Dimond problem*](#diamond-problem)|
+| 3. |[*Why String is immutable in Java?*](#why-string-is-immutable-in-java)|
+| 4. |[*String Pool in Java*](#string-pool-in-java)|
+| 5. |[*How many Strings are getting created?*](#How-many-strings-are-getting-created)|
 | 6. |[*Difference between Abstract Class and Interface in Java*](#difference-between-abstract-class-and-interface-in-java)   |
-| 7. |[*How to create immutable object?*](#how-to-create-immutable-object) |
-| 8. |[*What is difference between static and dynamic class loading?*](#what-is-difference-between-static-and-dynamic-class-loading) |
-| 9. |[*hashCode vs equals contarct*](#hashCode-vs-equals-contarct) |
-| 10. |[*Types of references in java*](#types-of-references-in-java) |
-| 11. |[*Overriding in Java*](#overriding-in-java) |
-| 12. |[*Internal vs External Iteration*](#internal-vs-external-iteration) |
-| 13. |[*What means that java streams are lazy evaluation?*](#what-means-that-java-streams-are-lazy-evaluation) |
+| 7. |[*How to create immutable object?*](#how-to-create-immutable-object)|
+| 8. |[*What is difference between static and dynamic class loading?*](#what-is-difference-between-static-and-dynamic-class-loading)|
+| 9. |[*hashCode vs equals contarct*](#hashCode-vs-equals-contarct)|
+| 10. |[*Types of references in java*](#types-of-references-in-java)|
+| 11. |[*Overriding in Java*](#overriding-in-java)|
+| 12. |[*Internal vs External Iteration*](#internal-vs-external-iteration)|
+| 13. |[*What means that java streams are lazy evaluation?*](#what-means-that-java-streams-are-lazy-evaluation)|
 
 ### Interfaces in Java 8
 
