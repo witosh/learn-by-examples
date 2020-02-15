@@ -208,7 +208,7 @@ Sources:
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### What's difference between static and dynamic class loading
+### What is difference between static and dynamic class loading?
 
 #### Static loading
 We can say that class is static loading when we use * *new* * operator just like in exmaple below:
@@ -270,14 +270,14 @@ equals() method relation:
 
 They are **strong** and **weak** references. For weak references we can distinguish **soft** and **phantom**.
 
-## Strong references
+#### Strong references
 Most ubiquitous form of references is strong reference. To create such reference we need to use keyword * *new* * e.g:
  - Student student = new Student()
 
 In this way we create **strong reference**. A strong reference is very important in the theme of Java Garbage collector. Any object with an active such reference to it, will never be garbage collected except situation just when one object have references to themself (cyclical references). This object will be eligible for garbage collector if * *student* * reference will be pointed to null e.g:
  - student = null
 
-## Soft references
+#### Soft references
 
 To create soft reference to an object (Student) you need to first create strong reference to that object and then pass this  strong reference as a argument to the constructor of **SoftReference** object e.g:
  - Student student = new Student()
@@ -297,7 +297,7 @@ So as is shown below we create strong references **student** (Object is created 
  - Student resurrectedStudent = softReference.get();
 In this situation object **student** is not eligible for garbage collector anymore.
  
-## Weak references
+#### Weak references
 The schema of craete weak reference is the same as above in soft references with one small exception that we use new class called **WeakReference**:
 - Student student = new Student()
 - WeakReference<Student> weakReference = new WeakReference<Student>(student);
@@ -307,7 +307,7 @@ First off, the Garbage Collector clears a weak reference, so the referent is no 
 At the same time, formerly weakly-reachable objects are going to be finalized.
 
 
-## Phantom references
+#### Phantom references
 The schema of create phantom reference is the similar as above but in this case we need to create **ReferenceQueue** object:
 - Student student = new Student()
 - ReferenceQueue<Student> referenceQueue = new ReferenceQueue<Student>(); 
