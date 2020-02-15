@@ -184,6 +184,7 @@ In the above statement, either 1 or 2 string will be created. If there is alread
 ### Difference between Abstract Class and Interface in Java
 
 | **Interface** | **Absract classe** |
+| ------------- |:-------------:|
 | _interface_ keyword	| _abstract_ keyword|
 | subclass _implements_ interface| subclass _extends_ abstract class|
 | can have abstract, default, static methods | can have abstract methods or impllemented methods |
