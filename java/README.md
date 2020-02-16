@@ -17,6 +17,10 @@
 | 11. |[*Overriding in Java*](#overriding-in-java)|
 | 12. |[*Internal vs External Iteration*](#internal-vs-external-iteration)|
 | 13. |[*What means that java streams are lazy evaluation?*](#what-means-that-java-streams-are-lazy-evaluation)|
+| 14. |[*Differences between Intermediate Operations and Terminal Operations*](#differences-between-intermediate-operations-and-terminal-operations)|
+| 15. |[*Reasons for default methods in interface*](#reasons-for-default-methods-in-interface)|
+| 16. |[*Reasons for static methods in interface*](#reasons-for-static-methods-in-interface)|
+
 
 ### Interfaces in Java 8
 
@@ -29,6 +33,12 @@ General intefrace
 - default methods require default implementation,
 - it is not mandatory to provide implementation for default methods of interface,
 - java interface static method is visible to interface methods only
+
+In Java SE 8, We can provide method implementations in Interfaces by using the following two new concepts:
+- Default Methods
+- Static Methods
+
+A Static Method is an Utility method or Helper method, which is associated to a class.
 
 #### Java Interface Default Method and diamon problem
 
@@ -448,5 +458,42 @@ According to documentation java streams are lazy it means that computations are 
 Source:
  - https://www.geeksforgeeks.org/stream-in-java/ [EN]
  - https://www.geeksforgeeks.org/stream-in-java/ [EN]
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Differences between Intermediate Operations and Terminal Operations
+
+| **Intermediate Operations ** | **Terminal Operations** |
+| ------------- |:-------------:|
+|_Stream Intermediate operations are not evaluated until we chain it with Stream Terminal Operation|Stream Terminal Operations are evaluated on it’s own. No need other operations help.|
+|The output of Intermediate Operations is another Stream|The output of Intermediate Operations is Not a Stream. Something else other than a Stream|
+|The output of Intermediate Operations is Not a Stream. Something else other than a Stream|Terminal Operations are evaluated Eagerly|
+|We can use any number of Stream Intermediate Operations per Statement|We can use only one Stream Terminal Operation per Statement|
+
+[Differences between Intermediate Operations and Terminal Operations](https://www.journaldev.com/10081/javase8-interview-questions-part2#java-se-8-interview-questions)
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Reasons for default methods in interface
+
+We need Default Methods because of the following reasons:
+
+- it allow us to provide method’s implementation in Interfaces,
+- to add new Functionality to Interface without breaking the Classes which implement that Interface,
+- to provide elegant Backwards Compatibility Feature,
+- to ease of extend the existing Functionality,
+- to ease of Maintain the existing Functionality,
+
+[Reasons for default methods in interface](https://www.journaldev.com/10081/javase8-interview-questions-part2#java-se-8-interview-questions)
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Reasons for static methods in interface
+
+We need Static Methods because of the following reasons:
+- keep Helper or Utility methods specific to an interface in the same interface rather than in a separate Utility class,
+- do not need separate Utility Classes like Collections, Arrays etc to keep Utility methods,
+- easy to extend the API,
+- easy to Maintain the API,
 
 **[⬆ Back to Top](#table-of-contents)**
