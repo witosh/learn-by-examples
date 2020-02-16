@@ -25,7 +25,9 @@
 | 17. |[*What Is a Method Reference?*](#what-is-a-method-reference)|
 | 18. |[*Aggregate operations in java*](#aggregate-operations-in-java)|
 | 19. |[*Enum types*](#enum-types)|
-
+| 20. |[*What Is Optional?*](#what-is-optional)|
+| 21. |[*What Is Stream Pipelining in Java 8?*](#what-is-stream-pipelining-in-java-8)|
+| 21. |[*Java streams*](https://www.baeldung.com/java-streams)|
 
 ### Interfaces in Java 8
 
@@ -604,4 +606,26 @@ public class EnumConstructorExample
 [1](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)
 [2](https://www.geeksforgeeks.org/enum-customized-value-java/)
 
-**[⬆ Back to Top](#table-of-contents)*
+**[⬆ Back to Top](#table-of-contents)**
+
+### What Is Optional?
+
+Optional is a new class in Java 8 that encapsulates an optional value i.e. a value that is either there or not. It is a wrapper around an object, and you can think of it as a container of zero or one element.
+
+Optional has a special Optional.empty() value instead of wrapped null. Thus it can be used instead of a nullable value to get rid of NullPointerException in many case. [1]
+
+[1]https://www.baeldung.com/java-optional)
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### What Is Stream Pipelining in Java 8?
+
+Stream pipelining is the concept of chaining operations together. This is done by splitting the operations that can happen on a stream into two categories: intermediate operations and terminal operations.
+
+Each intermediate operation returns an instance of Stream itself when it runs, an arbitrary number of intermediate operations can, therefore, be set up to process data forming a processing pipeline.
+
+There must then be a terminal operation which returns a final value and terminates the pipeline.[1]
+
+[1](https://www.baeldung.com/java-8-interview-questions)
+
+**[⬆ Back to Top](#table-of-contents)**
