@@ -1,5 +1,7 @@
 # Java questions & answers 
 
+[Oracle - The Java™ Tutorials(https://docs.oracle.com/javase/tutorial/index.html)
+
 ## Table of Contents
 
 | No.        | Topics           | 
@@ -20,6 +22,9 @@
 | 14. |[*Differences between Intermediate Operations and Terminal Operations*](#differences-between-intermediate-operations-and-terminal-operations)|
 | 15. |[*Reasons for default methods in interface*](#reasons-for-default-methods-in-interface)|
 | 16. |[*Reasons for static methods in interface*](#reasons-for-static-methods-in-interface)|
+| 17. |[*What Is a Method Reference?*](#what-is-a-method-reference)|
+| 18. |[*Aggregate operations in java*](#aggregate-operations-in-java)|
+| 19. |[*Enum types*](#enum-types)|
 
 
 ### Interfaces in Java 8
@@ -90,7 +95,10 @@ public class MyClass implements Interface1, Interface2 {
 
  An interface with exactly one abstract method is known as Functional Interface. @FunctionalInterface annotation marks an interface as Functional Interface. Annotation vvoid accidental addition of abstract methods in the functional interfaces (throw compilation error). It enables us to use lambda expressions to instantiate them.
 
+A functional interface may contain one or more default methods or static methods[1].
+
 [Source EN ](https://www.journaldev.com/2752/java-8-interface-changes-static-method-default-method)
+[1](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -219,7 +227,7 @@ Here we have principles to create such object:
 - if instance contains * *mutable* * object provide mechanism to don't allow this object changed e.g. create copies of this mutable object. 
 
 Sources:
-- https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html [EN]
+[1](https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -497,3 +505,103 @@ We need Static Methods because of the following reasons:
 - easy to Maintain the API,
 
 **[⬆ Back to Top](#table-of-contents)**
+
+### What Is a Method Reference?
+
+You use lambda expressions to create anonymous methods. Sometimes, however, a lambda expression does nothing but call an existing method. In those cases, it's often clearer to refer to the existing method by name.
+
+A method reference is the shorthand syntax for a lambda expression that executes just ONE method. E.g:
+```java
+Object::methodName
+```
+Method reference can only be used to replace a single-method lambda expression.
+
+So to use a method reference, you first need a lambda expression with one method. And to use a lambda expression, you first need a functional interface, an interface with just one abstract method
+
+**Kinds of Method References**:
+| **Kind** | **Example** |
+| ------------- |:-------------:|
+|Reference to a static method|ContainingClass::staticMethodName|
+|Reference to an instance method of a particular object|containingObject::instanceMethodName|
+|Reference to an instance method of an arbitrary object of a particular type|ContainingType::methodName|
+|Reference to a constructor|ClassName::new|
+
+[Examples of kind of references](https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html)
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Lambda expressions?
+
+[Best answer about what's labda expresions](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Aggregate operations in java
+
+The operations filter, map, and forEach are aggregate operations. Aggregate operations process elements from a stream, not directly from a collection (which is the reason why the first method invoked in this example is stream). A stream is a sequence of elements. Unlike a collection, it is not a data structure that stores elements. Instead, a stream carries values from a source, such as collection, through a pipeline. A pipeline is a sequence of stream operations, which in this example is filter- map-forEach. In addition, aggregate operations typically accept lambda expressions as parameters, enabling you to customize how they behave[1].
+
+[1](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Enum types
+
+An enum type is a special data type that enables for a variable to be a set of predefined constants.
+
+```java
+public enum Day {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY,
+    THURSDAY, FRIDAY, SATURDAY 
+}
+```
+
+Java programming language enum types are much more powerful than their counterparts in other languages. The enum declaration defines a class (called an enum type). The enum class body can include methods and other fields. The compiler automatically adds some special methods when it creates an enum. For example, they have a static values method that returns an array containing all of the values of the enum in the order they are declared
+
+Each enum constant is declared with values for the mass and radius parameters. These values are passed to the constructor when the constant is created. Java requires that the constants be defined first, prior to any fields or methods. Also, when there are fields and methods, the list of enum constants must end with a semicolon.
+
+Java language does not support multiple inheritance of state, and therefore an enum cannot extend anything else.
+
+``The constructor for an enum type must be package-private or private access. It automatically creates the constants that are defined at the beginning of the enum body. You cannot invoke an enum constructor yourself.``
+
+#### Enum with Customized Value in Java[2]
+
+Now to use this enum in code, there are some points we have to follow:
+- We have to create parameterized constructor for this enum class. (**Because as we know that enum class’s object can’t be create explicitly so for initializing we use parameterized constructor**),
+- And the constructor cannot be the public or protected it must have private or default modifiers. (**if we create public or protected, it will allow initializing more than one objects. This is totally against enum concept.**)
+
+```java
+enum TrafficSignal 
+{ 
+    RED("STOP"), GREEN("GO"), ORANGE("SLOW DOWN"); 
+  
+    private String action; 
+  
+    public String getAction() 
+    { 
+        return this.action; 
+    } 
+
+    private TrafficSignal(String action) 
+    { 
+        this.action = action; 
+    } 
+} 
+
+public class EnumConstructorExample 
+{ 
+    public static void main(String args[]) 
+    { 
+        TrafficSignal[] signals = TrafficSignal.values(); 
+  
+        for (TrafficSignal signal : signals) 
+        { 
+            System.out.println("name : " + signal.name() + " action: " + signal.getAction() ); 
+        } 
+    } 
+}
+```
+
+[1](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)
+[2](https://www.geeksforgeeks.org/enum-customized-value-java/)
+
+**[⬆ Back to Top](#table-of-contents)*
