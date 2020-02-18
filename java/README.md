@@ -614,7 +614,11 @@ Optional is a new class in Java 8 that encapsulates an optional value i.e. a val
 
 Optional has a special Optional.empty() value instead of wrapped null. Thus it can be used instead of a nullable value to get rid of NullPointerException in many case. [1]
 
+**Don't use Optionals for conditional logic.**
+[They were designed, to be returned from a method to indicate a potentially absent value](https://stackoverflow.com/questions/23454952/uses-for-optional/23464794#23464794)
+
 [1]https://www.baeldung.com/java-optional)
+[Optional vs if/else-if performance java 8](https://stackoverflow.com/questions/56235254/optional-vs-if-else-if-performance-java-8)
 
 **[⬆ Back to Top](#table-of-contents)**
 
