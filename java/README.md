@@ -28,6 +28,11 @@
 | 20. |[*What Is Optional?*](#what-is-optional)|
 | 21. |[*What Is Stream Pipelining in Java 8?*](#what-is-stream-pipelining-in-java-8)|
 | 21. |[*Java streams*](https://www.baeldung.com/java-streams)|
+| 22. |[*Java OOPS*](https://stackoverflow.com/questions/23130282/best-way-to-explain-oop-principles)|
+| 23. |[*Inheritance*](#inheritance)|
+| 24. |[*Abstraction*](#abstraction)|
+| 25. |[*Polymorphism*](#polymorphism)|
+| 26. |[*Encapsulation*](#encapsulation)|
 
 ### Interfaces in Java 8
 
@@ -627,5 +632,97 @@ Each intermediate operation returns an instance of Stream itself when it runs, a
 There must then be a terminal operation which returns a final value and terminates the pipeline.[1]
 
 [1](https://www.baeldung.com/java-8-interview-questions)
+
+**[⬆ Back to Top](#table-of-contents)**
+
+
+### Inheritance
+
+Inheritance in Java is the method to create a hierarchy between classes by inheriting from other classes.
+
+Java Inheritance is transitive – so if Sedan extends Car and Car extends Vehicle.[1]
+
+[1](https://www.journaldev.com/644/inheritance-java-example)
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Abstraction
+
+Abstraction is the process of hiding the internal details of an application from the outer world (We can hide them from the outer world through access modifiers.). Abstraction is used to describe things in simple terms.[1]
+
+There are two types of abstraction:
+- Data Abstraction
+- Process Abstraction
+
+#### Data Abstraction
+When the object data is not visible to the outer world, it creates data abstraction. If needed, access to the Objects’ data is provided through some methods
+```java
+public class Person{
+	private int age;
+	private String name;
+
+	public void setName(){
+		...
+	}
+
+	public String getName(){
+		...
+	}
+
+	public void setAge(){
+		...
+	}
+	
+	public int getAge(){
+		...
+	}
+}
+```
+#### Process Abstraction
+We don’t need to provide details about all the functions of an object. When we hide the internal implementation of the different functions involved in a user operation, it creates process abstraction
+
+```java
+```java
+public class Car {
+
+	public void turnOn(){
+		...
+	}
+
+	public void turnOn(){
+		...
+	}
+
+	private void fillFuel(){
+		...
+	}
+
+	private void starter(){
+		...
+	}
+}
+```
+
+[1](https://www.journaldev.com/33191/what-is-abstraction-in-oops)
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Polymorphism
+
+Polymorphism is the ability to perform different things in different scenarios. Sometimes, the polymorphism is based on the input parameters to the function. The polymorphism can be present in case of inheritance also.[1]
+
+[1](https://www.journaldev.com/33246/polymorphism-in-java)
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Encapsulation
+
+Encapsulation is one of the ways to achieve abstraction in Object-oriented programming.
+
+It’s the mechanism to bind together the data and the function that work on it.
+
+Encapsulation is the process of hiding Objects’ properties from the outer world and provides methods to access them.[1]
+
+[1](https://www.journaldev.com/33221/encapsulation-in-java)
 
 **[⬆ Back to Top](#table-of-contents)**
