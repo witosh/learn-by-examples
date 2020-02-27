@@ -1,5 +1,9 @@
 # Project which helps to understand basic topics occurred in learning programming.
 
+### Eclipse
+[Key shortcut for eclipse](https://stackoverflow.com/questions/8583339/key-shortcut-for-eclipse-imports)
+
+<!--
 ### Main topics:
  - **hibernate** 
  	- Entity state in JPA.
@@ -16,7 +20,8 @@
  - **java-streams**
  	- What's lazy evaluation in stream?
 
-
+-->
+<!--
 Topics to be presented:
 - HashSet vs TreeSet 
 - what's hexagonal architecture,
@@ -33,3 +38,5 @@ Topics to be presented:
 - inheritance in hibernate
 - how java pass arguments in methods,
 - static keyword in Java
+
+-->
