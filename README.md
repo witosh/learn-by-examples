@@ -3,6 +3,9 @@
 ### Eclipse
 [Key shortcut for eclipse](https://stackoverflow.com/questions/8583339/key-shortcut-for-eclipse-imports)
 
+### Special characters
+[Password Special Characters - name](https://owasp.org/www-community/password-special-characters)
+
 <!--
 ### Main topics:
  - **hibernate** 
