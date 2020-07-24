@@ -729,3 +729,8 @@ Encapsulation is the process of hiding Objects’ properties from the outer worl
 [1](https://www.journaldev.com/33221/encapsulation-in-java)
 
 **[⬆ Back to Top](#table-of-contents)**
+
+
+#TODO:
+#https://docs.codeclimate.com/docs/cognitive-complexity
+#https://blog.sonarsource.com/cognitive-complexity-because-testability-understandability
