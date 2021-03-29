@@ -52,6 +52,8 @@ In Java SE 8, We can provide method implementations in Interfaces by using the f
 
 A Static Method is an Utility method or Helper method, which is associated to a class.
 
+**[⬆ Back to Top](#table-of-contents)**
+
 #### Java Interface Default Method and diamon problem
 
 By default it is not mandatory to provide implementation for default methods of interface.
@@ -96,7 +98,10 @@ public class MyClass implements Interface1, Interface2 {
 	}
 ```
 
-[Java and multiple inheritance](https://www.geeksforgeeks.org/java-and-multiple-inheritance/)
+Sources: 
+- [Java and multiple inheritance](https://www.geeksforgeeks.org/java-and-multiple-inheritance/)
+
+**[⬆ Back to Top](#table-of-contents)**
 
 #### Functional interface
 
@@ -104,8 +109,9 @@ public class MyClass implements Interface1, Interface2 {
 
 A functional interface may contain one or more default methods or static methods[1].
 
-[Source EN ](https://www.journaldev.com/2752/java-8-interface-changes-static-method-default-method)
-[1](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)
+Sources:
+- [Source EN ](https://www.journaldev.com/2752/java-8-interface-changes-static-method-default-method)
+- [1](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -157,7 +163,8 @@ B   C
   D
 ```
 
-[Java and multiple inheritance](https://www.geeksforgeeks.org/java-and-multiple-inheritance/)
+Sources: 
+- [Java and multiple inheritance](https://www.geeksforgeeks.org/java-and-multiple-inheritance/)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -169,7 +176,8 @@ B   C
 - Since String is immutable, its hashcode is cached at the time of creation and it doesn’t need to be calculated again,
 - If String is not immutable then it would cause a severe security threat 
 
-[Source en](https://www.journaldev.com/802/string-immutable-final-java)
+Sources:
+- [Source en](https://www.journaldev.com/802/string-immutable-final-java)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -197,8 +205,10 @@ public class InternExample{
 	}
 }  
 ```
-[Java string intern](https://www.javatpoint.com/java-string-intern)
-[String pool](https://www.journaldev.com/797/what-is-java-string-pool)
+
+Sources:
+- [Java string intern](https://www.javatpoint.com/java-string-intern)
+- [String pool](https://www.journaldev.com/797/what-is-java-string-pool)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -209,7 +219,8 @@ String str = new String("Cat");
 ```
 In the above statement, either 1 or 2 string will be created. If there is already a string literal “Cat” in the pool, then only one string “str” will be created in the pool. If there is no string literal “Cat” in the pool, then it will be first created in the pool and then in the heap space, so a total of 2 string objects will be created.
 
-[Created strings](https://www.journaldev.com/797/what-is-java-string-pool)
+Sources: 
+- [Created strings](https://www.journaldev.com/797/what-is-java-string-pool)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -222,7 +233,6 @@ In the above statement, either 1 or 2 string will be created. If there is alread
 | can have abstract, default, static methods | can have abstract methods or impllemented methods |
 | subclass can implements one or more interfaces| subclass can extends only one abstract class|
 
-
 **[⬆ Back to Top](#table-of-contents)**
 
 ### How to create immutable object?
@@ -234,7 +244,7 @@ Here we have principles to create such object:
 - if instance contains * *mutable* * object provide mechanism to don't allow this object changed e.g. create copies of this mutable object. 
 
 Sources:
-[1](https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html)
+- [1](https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -250,8 +260,8 @@ Dynamic Java Class loading is mainly using the reflection.
 It's sitaution when we want to get class which is not konow in compile time and we do that in runtime e.g
 Class.forName("com.githubproject.model.Student")
 
-Source:
- - https://examples.javacodegeeks.com/core-java/dynamic-class-loading-example/ [EN]
+Sources:
+- [1](https://examples.javacodegeeks.com/core-java/dynamic-class-loading-example/)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -388,7 +398,8 @@ Java @Override annotation will make sure any superclass changes in method signat
 
 It’s better to resolve potential issues at compile time than runtime. There coulde be situation happened when you try to override method on subclass but then for a couple days you change a signature of this method, so it could change behaviour of your subclass.
 
-[Java @Override Annotation](https://www.journaldev.com/817/java-override-method-overriding)
+Sources:
+- [Java @Override Annotation](https://www.journaldev.com/817/java-override-method-overriding)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -445,7 +456,8 @@ Summary:
 - external iteration mixes the “what” (uppercase) and the “how” (for loop/iterator),
 - internal iteration lets the client to provide only the “what” but lets the library control the “how”
 
-[Internal vs External Iteration](https://howtodoinjava.com/java8/java-8-tutorial-internal-vs-external-iteration/)
+Sources:
+- [Internal vs External Iteration](https://howtodoinjava.com/java8/java-8-tutorial-internal-vs-external-iteration/)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -533,13 +545,15 @@ So to use a method reference, you first need a lambda expression with one method
 |Reference to an instance method of an arbitrary object of a particular type|ContainingType::methodName|
 |Reference to a constructor|ClassName::new|
 
-[Examples of kind of references](https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html)
+Sources:
+- [Examples of kind of references](https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html)
 
 **[⬆ Back to Top](#table-of-contents)**
 
 ### Lambda expressions?
 
-[Best answer about what's labda expresions](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)
+Sources:
+- [Best answer about what's labda expresions](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -547,7 +561,8 @@ So to use a method reference, you first need a lambda expression with one method
 
 The operations filter, map, and forEach are aggregate operations. Aggregate operations process elements from a stream, not directly from a collection (which is the reason why the first method invoked in this example is stream). A stream is a sequence of elements. Unlike a collection, it is not a data structure that stores elements. Instead, a stream carries values from a source, such as collection, through a pipeline. A pipeline is a sequence of stream operations, which in this example is filter- map-forEach. In addition, aggregate operations typically accept lambda expressions as parameters, enabling you to customize how they behave[1].
 
-[1](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)
+Sources:
+- [1](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -607,9 +622,9 @@ public class EnumConstructorExample
     } 
 }
 ```
-
-[1](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)
-[2](https://www.geeksforgeeks.org/enum-customized-value-java/)
+Sources:
+- [1](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)
+- [2](https://www.geeksforgeeks.org/enum-customized-value-java/)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -622,8 +637,9 @@ Optional has a special Optional.empty() value instead of wrapped null. Thus it c
 **Don't use Optionals for conditional logic.**
 [They were designed, to be returned from a method to indicate a potentially absent value](https://stackoverflow.com/questions/23454952/uses-for-optional/23464794#23464794)
 
-[1]https://www.baeldung.com/java-optional)
-[Optional vs if/else-if performance java 8](https://stackoverflow.com/questions/56235254/optional-vs-if-else-if-performance-java-8)
+Sources:
+- [1]https://www.baeldung.com/java-optional)
+- [Optional vs if/else-if performance java 8](https://stackoverflow.com/questions/56235254/optional-vs-if-else-if-performance-java-8)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -634,8 +650,8 @@ Stream pipelining is the concept of chaining operations together. This is done b
 Each intermediate operation returns an instance of Stream itself when it runs, an arbitrary number of intermediate operations can, therefore, be set up to process data forming a processing pipeline.
 
 There must then be a terminal operation which returns a final value and terminates the pipeline.[1]
-
-[1](https://www.baeldung.com/java-8-interview-questions)
+Sources:
+- [1](https://www.baeldung.com/java-8-interview-questions)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -645,7 +661,8 @@ Inheritance in Java is the method to create a hierarchy between classes by inher
 
 Java Inheritance is transitive – so if Sedan extends Car and Car extends Vehicle.[1]
 
-[1](https://www.journaldev.com/644/inheritance-java-example)
+Sources:
+- [1](https://www.journaldev.com/644/inheritance-java-example)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -705,8 +722,8 @@ public class Car {
 	}
 }
 ```
-
-[1](https://www.journaldev.com/33191/what-is-abstraction-in-oops)
+Sources:
+- [1](https://www.journaldev.com/33191/what-is-abstraction-in-oops)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -714,7 +731,8 @@ public class Car {
 
 Polymorphism is the ability to perform different things in different scenarios. Sometimes, the polymorphism is based on the input parameters to the function. The polymorphism can be present in case of inheritance also.[1]
 
-[1](https://www.journaldev.com/33246/polymorphism-in-java)
+Sources:
+- [1](https://www.journaldev.com/33246/polymorphism-in-java)
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -726,10 +744,10 @@ It’s the mechanism to bind together the data and the function that work on it.
 
 Encapsulation is the process of hiding Objects’ properties from the outer world and provides methods to access them.[1]
 
-[1](https://www.journaldev.com/33221/encapsulation-in-java)
+Sources:
+- [1](https://www.journaldev.com/33221/encapsulation-in-java)
 
 **[⬆ Back to Top](#table-of-contents)**
-
 
 #TODO:
 #https://docs.codeclimate.com/docs/cognitive-complexity
