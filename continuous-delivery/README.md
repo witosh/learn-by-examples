@@ -6,9 +6,8 @@
 | ------------- |:-------------|
 | 1. | [*Jenkins Scalability type*](#jenkins-scalability)|
 | 2. | [*Running Jenkins on Docker*](https://github.com/witosh/learn-by-examples/blob/master/continuous-delivery/jenkins-on-docker/README.md#how-to-run-jenkins-on-docker)|
-| 3. | [*Log inside running Jenkins container*](#log-inside-running-jenkins-container)|
 | 4. | [*Needed Jenkins plugins*](#needed-jenkins-plugins)|
-| . | [*Whats the difference between a proxy server and a reverse proxy server*](#whats-the-difference-between-a-proxy-server-and-a-reverse-proxy-server)|
+| 5. | [*Whats the difference between a proxy server and a reverse proxy server*](#whats-the-difference-between-a-proxy-server-and-a-reverse-proxy-server)|
 
 
 ### Jenkins Scalability
