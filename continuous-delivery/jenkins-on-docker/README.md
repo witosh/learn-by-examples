@@ -134,3 +134,5 @@ sudo docker run --rm -it --user root -v jenkins-home-prod:/var/jenkins_home -v j
 - *-v jenkins-home-prod:/var/jenkins_home* -  it will mount the content of the jenkins-home-prod data volume onto the /var/jenkins_home directory present inside the container.
 - *-v jenkins-home-staging:/var/jenkins_home_staging* - it will mount the non-existing content of the jenkins-home-staging data volume onto the non-existing /var/jenkins_home_staging directory inside the container
 - *bash -c cd /var/jenkins_home_staging && cp -a /var/jenkins_home/* .* - copy the content of /var/jenkins_home to /var/jenkins_home_staging
+
+**[⬆ Back to Top](*https://github.com/witosh/learn-by-examples/blob/master/continuous-delivery/README.md*)
