@@ -37,7 +37,9 @@ Check created volume by listing all volumes:
 docker volume ls
 ```
 Excpeced result show be smoething like that:
+
 |DRIVER  |  VOLUME NAME|
+| ------------- |:-------------|
 |local   |  1beaefe237e73a2033c44e0ebdc4a6680d207fd8ebc6ed12a2dc6391573b76e7|
 |local   |  3ee370779bf4b2220242c04be9b6153cee0a37f46f7d6b5c8012c09ea69d35f7|
 |local   |  dc1836eb77e1ab547558e28fa16202c283b11e60a0d6eb19a44559b171b8e079|
@@ -51,16 +53,19 @@ docker volume ls -f name=jenkins_home
 With this knowledge let's check which container is bound to *jenkins_prod* volume:
 ```bash
 docker ps -a --filter volume=jenkins_home --format "{{.Names}}"
-
 ```
 we should see value:
-> jenkins
+| Names |
+| -----|
+|jenkins|
 
 Ok, so add ID to formatting:
 ```bash
 docker ps -a --filter volume=jenkins_home --format "{{.ID}} - {{.Names}}"
 ```
->20dec1c89d02 - jenkins
+|ID  - NAMES|
+| -------------|
+|20dec1c89d02 - jenkins|
 
 Based on that container id we can stop/tart jenkins container by:
 ```bash
@@ -128,4 +133,4 @@ sudo docker run --rm -it --user root -v jenkins-home-prod:/var/jenkins_home -v j
 - *--user root* - all actions performed on this temporary container
 - *-v jenkins-home-prod:/var/jenkins_home* -  it will mount the content of the jenkins-home-prod data volume onto the /var/jenkins_home directory present inside the container.
 - *-v jenkins-home-staging:/var/jenkins_home_staging* - it will mount the non-existing content of the jenkins-home-staging data volume onto the non-existing /var/jenkins_home_staging directory inside the container
-> bash -c cd /var/jenkins_home_staging && cp -a /var/jenkins_home/* . , copy the content of /var/jenkins_home to /var/jenkins_home_staging
+- *bash -c cd /var/jenkins_home_staging && cp -a /var/jenkins_home/* .* - copy the content of /var/jenkins_home to /var/jenkins_home_staging
