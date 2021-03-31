@@ -65,7 +65,7 @@ Check which container is applied to specific volume
 docker ps -a --filter volume=jenkins-home-prod
 ```
 
-Check active Jenkins container:
+Check active containers:
 ```bash
 sudo docker ps --format "{{.ID}}: {{.Image}} {{.Names}}"
 ```
